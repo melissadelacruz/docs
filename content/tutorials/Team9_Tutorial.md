@@ -30,7 +30,7 @@ This tutorial aims to let others recreate one of the many steps from our project
 
 [Arduino Documentation](https://docs.arduino.cc/libraries/sd/): Comprehensive guide for programming sd card with Arduino.\
 [ESP32-S3 Datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf): Detailed specifications for the microcontroller.\
-[Original Audio Hookup Guide](https://learn.sparkfun.com/tutorials/i2s-audio-breakout-hookup-guide/all): Original source used for this tutorial.\
+[Original Audio Hookup Guide](https://learn.sarkfun.com/tutorials/i2s-audio-breakout-hookup-guide/all): Original source used for this tutorial.\
 [Arduino IDE](https://www.arduino.cc/en/software): IDE needed for microcontroller of use.
 
 Ensure you familiarize yourself with these resources as they will be helpful throughout the tutorial.
@@ -50,7 +50,6 @@ List your required hardware components and the quantities here.
 | SD Card Adapter|1          | For interfacing the SD card with the microcontroller.
 | Microcontroller (ESP32-S3)|1| A powerful microcontroller with built-in Wi-Fi and Bluetooth support.
 | USB-C cable    | 1         | To supply power to the microcontroller and upload code.
-| Screw Terminal | 1 | To connect the amplifier to the speaker.
 
 ### Required Tools and Equipment
 
@@ -72,7 +71,7 @@ We will be testing the functionality of the speaker.
 
 ### Components
 
-All of the components needed for part 1 is listed above. The SD Card adapter and SD Card will be used in part 2 of this tutorial.
+All of the components needed for part 1 are listed above. The SD Card adapter and SD Card will be used in part 2 of this tutorial.
 
 ### Instructional
 
@@ -82,9 +81,29 @@ You'll need to install the ESP8266 Audio Arduino Library, written by Earle F. Ph
 
 Link to library: https://github.com/earlephilhower/ESP8266Audio/archive/master.zip
 
-Step 2: *Test Speaker with Provided Sample Audio*
+Step 2: *Establish Correct Pins*
 
-In this first example, we'll run a quick example sketch to make sure the I2S audio breakout board is wired correctly and is working.
+In this first example, we'll run a quick example sketch to make sure the amplifier and speaker are wired correctly and are working.
+
+![Image of Speaker Amplifier](Max98375 Breakput front.png)
+
+| Pin Label | Description                                                                                       |
+|-----------|---------------------------------------------------------------------------------------------------|
+| LRCLK     | Frame clock (left/right clock) input.                                                             |
+| BCLK      | Bit clock input.                                                                                  |
+| DIN       | Serial data input.                                                                                |
+| GAIN      | Gain setting. Can be set to +3/6/9/12/15dB. Set to +9dB by default.                                |
+| SD        | Shutdown and channel select. Pull low to shutdown, or use the jumpers to select the channel output.|
+| GND       | Connect to ground                                                                                 |
+| VDD       | Power input. Must be between 2.5 and 5.5VDC. 
+|+|Positive speaker output.
+|-|Negative speaker output.
+
+Speaker wires can be directly soldered onto the output pads but you can also use the screw terminals which are included with the amplifier.
+
+Here is a video clip of what our test will be for the speaker and amplifier: [Speaker Example Video](https://youtube.com/shorts/FYhkYiKPkjs?feature=share)
+
+Change pins to correspond to ESP32-S3 pins
 
 
 
