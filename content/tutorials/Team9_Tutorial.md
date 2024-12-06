@@ -60,6 +60,7 @@ computer, soldering station, wire stripper
 ### Introduction
 
 We will be testing the functionality of the speaker.
+Here is a video clip of what the results of the test should look like for the speaker and amplifier: [Speaker Example Video](https://youtube.com/shorts/FYhkYiKPkjs?feature=share)
 
 ### Objective
 
@@ -85,7 +86,7 @@ Step 2: *Establish Correct Pins*
 
 In this first example, we'll run a quick example sketch to make sure the amplifier and speaker are wired correctly and are working.
 
-![Image of Speaker Amplifier](Max98375 Breakput front.png)
+![Image of Speaker Amplifier](Max98375_Breakout_front.png)
 
 | Pin Label | Description                                                                                       |
 |-----------|---------------------------------------------------------------------------------------------------|
@@ -101,9 +102,6 @@ In this first example, we'll run a quick example sketch to make sure the amplifi
 
 Speaker wires can be directly soldered onto the output pads but you can also use the screw terminals which are included with the amplifier.
 
-Here is a video clip of what our test will be for the speaker and amplifier: [Speaker Example Video](https://youtube.com/shorts/FYhkYiKPkjs?feature=share)
-
-Change pins to correspond to ESP32-S3 pins
 
 
 
