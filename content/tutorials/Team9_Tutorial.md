@@ -60,7 +60,10 @@ computer, soldering station, wire stripper
 ### Introduction
 
 We will be testing the functionality of the speaker.
-Here is a video clip of what the results of the test should look like for the speaker and amplifier: [Speaker Example Video](https://youtube.com/shorts/FYhkYiKPkjs?feature=share)
+
+**Here is a video clip of what the results of the test should look like for the speaker and amplifier:**
+
+[Speaker Example Video](https://youtube.com/shorts/FYhkYiKPkjs?feature=share)
 
 ### Objective
 
@@ -93,27 +96,25 @@ In this first example, we'll run a quick example sketch to make sure the amplifi
 | LRCLK     | Frame clock (left/right clock) input.                                                             |
 | BCLK      | Bit clock input.                                                                                  |
 | DIN       | Serial data input.                                                                                |
-| GAIN      | Gain setting. Can be set to +3/6/9/12/15dB. Set to +9dB by default.                                |
+| GAIN      | Gain setting. Can be set to +3/6/9/12/15dB. Set to +9dB by default. WILL NOT BE USED.                        |
 | SD        | Shutdown and channel select. Pull low to shutdown, or use the jumpers to select the channel output.|
 | GND       | Connect to ground                                                                                 |
 | VDD       | Power input. Must be between 2.5 and 5.5VDC. 
 |+|Positive speaker output.
 |-|Negative speaker output.
 
-Speaker wires can be directly soldered onto the output pads but you can also use the screw terminals which are included with the amplifier.
+Speaker wires can be directly soldered onto the output pads of the amplifier but you can also use the screw terminals which are included with the amplifier. 
+
+Now solder on header pins to the amplifier.
+
+Here is an example video on how to do that: 
+
+[Solder Video Here (Watch up to 11:20 if you are a beginner)](https://www.youtube.com/watch?v=Z7AyhDo_gN4&ab_channel=nLab)
+
+Now grab some jumper cables and connect the female part of the wire to the header pins on the amplifier. Now make connections to the breadboard and power up the amplifier. With the rest of the pins 
 
 
-
-
-## Example
-
-### Introduction
-
-Introduce the example that you are showing here.
-
-### Example
-
-Present the example here. Include visuals to help better understanding
+Now that we were able to analyze the amplifier and solder all our parts, we will now wire up the 
 
 ### Analysis
 
