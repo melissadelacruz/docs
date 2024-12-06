@@ -31,8 +31,7 @@ This tutorial aims to let others recreate one of the many steps from our project
 [Arduino Documentation](https://docs.arduino.cc/libraries/sd/): Comprehensive guide for programming sd card with Arduino.\
 [ESP32-S3 Datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf): Detailed specifications for the microcontroller.\
 [Original Audio Hookup Guide](https://learn.sparkfun.com/tutorials/i2s-audio-breakout-hookup-guide/all): Original source used for this tutorial.\
-[Arduino IDE](https://www.arduino.cc/en/software): IDE needed for microcontroller of use.\
-[Arduino Audio Library (zip)](https://github.com/earlephilhower/ESP8266Audio/archive/master.zip): To use the library, you can add the library from Arduino by selecting Sketch ** > **Include Library ** > **Add .ZIP Library... and selecting the .zip file from wherever you store your file downloads. This will be used for the audio output of the speaker.
+[Arduino IDE](https://www.arduino.cc/en/software): IDE needed for microcontroller of use.
 
 Ensure you familiarize yourself with these resources as they will be helpful throughout the tutorial.
 
@@ -71,20 +70,23 @@ We will be testing the functionality of the speaker.
 - Test the speaker by playing simple audio output (e.g., tones or basic sound effects).
 
 
-### Background Information
-
-Give a brief explanation of the technical skills learned/needed
-in this challenge. There is no need to go into detail as a
-separation document should be prepared to explain more in depth
-about the technical skills 
-
 ### Components
 
-- List the components needed in this challenge
+All of the components needed for part 1 is listed above. The SD Card adapter and SD Card will be used in part 2 of this tutorial.
 
 ### Instructional
 
-Teach the contents of this section
+Step 1: *Upload Appropriate Library*
+
+You'll need to install the ESP8266 Audio Arduino Library, written by Earle F. Philhower, which you can get from the link below. This library will allow you to play a wide variety of audio formats including: AAC, FLAC, MIDI, MOD, MP3, RTTTL, and WAV. To use the library, you can add the library from Arduino by selecting Sketch ** > **Include Library ** > **Add .ZIP Library... and selecting the .zip file from wherever you store your file downloads.
+
+Link to library: https://github.com/earlephilhower/ESP8266Audio/archive/master.zip
+
+Step 2: *Test Speaker with Provided Sample Audio*
+
+In this first example, we'll run a quick example sketch to make sure the I2S audio breakout board is wired correctly and is working.
+
+
 
 ## Example
 
