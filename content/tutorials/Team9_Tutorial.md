@@ -133,18 +133,9 @@ Steps to access the code:
 1. On the menu bar, click on "File" on Arduino IDE.
 2. Examples < (scroll to bottom) ESP8266Audio < PlayACCFromPROGMEM (This will be the code used to generate sound output)
 3. Open file system < Documents < Arduino < Libraries < ESP8266AudioI2S.cpp (This will be the code that contains pin assignments)
-4. Open the cpp file and make these changes on *lines 49 - 51* :
-
-`bclkPin = 38;` 
-
-`wclkPin = 39;` 
-
-`doutPin = 37;`
-
+4. Open the cpp file and make these changes on *lines 49 - 51* : `bclkPin = 38;` `wclkPin = 39;` `doutPin = 37;`
 5. Save changes.
-6. Go back to *PlayACCFromPROGMEM.ino* and comment out line 21:
-
- `// out = SetGain(0.125)` 
+6. Go back to *PlayACCFromPROGMEM.ino* and comment out line 21: `// out = SetGain(0.125)` 
 
 7. Upload to ESP-32.
 
@@ -175,7 +166,10 @@ The components needed for this part are:
 
 ### Instructional Steps
 ***Step 1: Wiring the SD Card Adapter***
-Connect the SD card adapter to the ESP-32 microcontroller. Ensure that you follow the pinout diagram provided for the SD card adapter. Here are the typical connections:
+
+Connect the SD card adapter to the ESP-32 microcontroller. Ensure that you follow the pinout diagram provided for the SD card adapter. 
+
+Here are the typical connections:
 | Pin Label | Pin Connection to ESP-32                                                                                       |
 |-----------|---------------------------------------------------------------------------------------------------|
 | SLK     | pin 14                                                           |
@@ -188,21 +182,24 @@ Connect the SD card adapter to the ESP-32 microcontroller. Ensure that you follo
 Copy an MP3 file to the SD card. Ensure the file is named "TRACK0".mp3 for easy access in the code.
 
 ***Step 3: Changing Code to Reassign Pins***
+
 1. Go to file < Examples < SD < SD_Test
 2. On lines 48-51, change the pins to match what we have on our physical ESP 32 connections. (Refer to table above)
 3. Save changes.
+4. On top right corner in Arduino IDE, click on the little magnifying bar. That will open the serial monitor.
 
 
-***Step 3: Testing the SD Card through Serial Monitor on Arduino IDE***
+***Step 4: Testing the SD Card through Serial Monitor on Arduino IDE***
 
-1. O
-Upload the SD card testing code to the ESP-32 using Arduino IDE.
+1. Go to tools < USB CDC on Boot: Disabled" < Enabled (This is to be able to see print statements in the serial monitor)
+2. Upload the SD_Test code to the ESP-32 using Arduino IDE.
 
-### Components
+You should see this in the serial monitor if successful:
+![Tests Pass](serial_monitor.png)
 
-### Instructional
+## Part 03: Combining Speaker and SD Card
 
-Explain how the example used your tutorial topic. Give in-depth analysis of each part and show your understanding of the tutorial topic
+
 
 ## Additional Resources
 
