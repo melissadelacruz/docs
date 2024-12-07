@@ -8,7 +8,7 @@ authors:
 ---
 
 
-# Playing Music on a Speaker from SD Card
+# Playing Music on a Speaker from SD Card (Team 9 Fall 2024)
 
 ## Introduction
 
@@ -29,12 +29,8 @@ This tutorial aims to let others recreate one of the many steps from our project
 
 ### Required Downloads and Installations
 
-[Arduino Documentation](https://docs.arduino.cc/libraries/sd/): Comprehensive guide for programming sd card with Arduino.\
-[ESP32-S3 Datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf): Detailed specifications for the microcontroller.\
-[Original Audio Hookup Guide](https://learn.sarkfun.com/tutorials/i2s-audio-breakout-hookup-guide/all): Original source used for this tutorial.\
 [Arduino IDE](https://www.arduino.cc/en/software): IDE needed for microcontroller of use.
 
-Ensure you familiarize yourself with these resources as they will be helpful throughout the tutorial.
 
 ### Required Components
 
@@ -110,7 +106,7 @@ Here is an example video on how to do that:
 
 [Solder Video Here (Watch up to 11:20 if you are a beginner)](https://www.youtube.com/watch?v=Z7AyhDo_gN4&ab_channel=nLab)
 
-Now grab some jumper cables and connect the female part of the wire to the header pins on the amplifier. Now make connections to the breadboard and power up the amplifier (only GND and VDD). With the rest of the pins from the amplifier, make connections to the ESP 32. 
+Now grab some jumper cables and connect the female part of the jumper cable to the header pins on the amplifier. Now make connections to the breadboard and power up the amplifier (only GND and VDD). With the rest of the pins from the amplifier, make connections to the ESP 32 with the male ends of the cables. 
 
 Here are the pin conections you should make:
 
@@ -179,7 +175,7 @@ Here are the typical connections:
 
 ***Step 2: Formatting and Loading MP3 Files***
 
-Copy an MP3 file to the SD card. Ensure the file is named "TRACK0".mp3 for easy access in the code.
+Copy an mp3 file to the SD card. Ensure the file is named "TRACK0".mp3 for easy access in the code.
 
 ***Step 3: Changing Code to Reassign Pins***
 
@@ -199,10 +195,66 @@ You should see this in the serial monitor if successful:
 
 ## Part 03: Combining Speaker and SD Card
 
+1. Go to file < new sketch
+2. Copy and Paste the code provided to Arduino IDE:
 
+```cpp
+/****************************************************************
+* PLAY MUSIC STORED ON SD CARD THROUGH AMPLIFIER
+* ==============================================
+*
+* In this program MP3 compatible music file is stored on microSD
+* card. The program opens the file and plays the music on the
+* speaker through the MAX98357A amplifier
+*
+* Author : Dogan Ibrahim
+* Program: SDMusic
+* Date : April, 2023
+**************************************************************/
+#include "Arduino.h"
+#include "Audio.h"
+#include "SD.h"
+#include "FS.h"
+//
+// microSD card to ESP32 connections
+//
+#define CARD_MOSI 13;
+#define CARD_MISO 12;
+#define CARD_SCK 14;
+#define CARD_CS 15;
+//
+// Define MAX98357A amplifier connections
+//
+#define I2S_BCLK 5 //change to pins 38, 39 and 37? used for speaker test...
+#define I2S_LRC 4
+#define I2S_DOUT 6
+Audio audio; // Audio object
+void setup()
+{
+// CS is output
+pinMode(CARD_CS, OUTPUT); digitalWrite(CARD_CS, HIGH); // CS HIGH
+SPI.begin(CARD_SCK,CARD_MISO,CARD_MOSI); // Init SPI bus
+Serial.begin(115200); // Serial Monitor
+if(!SD.begin(CARD_CS)) // Start SD card
+{
+Serial.println(F("Error in microSD card")); while(true);
+// card error
 
-## Additional Resources
+//Practical Audio DSP Projects with the ESP32
+}
+Serial.println(F("microSD card accessed correctly"));
+audio.setPinout(I2S_BCLK, I2S_LRC, I2S_DOUT); // Setup I2S
+audio.setVolume(10); // Set volume
+audio.connecttoFS(SD,"TRACK0.mp3"); // Open file
+}
+void loop()
+{
+audio.loop();
+}`
+```
 
 ### Useful links
 
-List any sources you used, documentation, helpful examples, similar projects etc.
+[Arduino Documentation](https://docs.arduino.cc/libraries/sd/): Comprehensive guide for programming sd card with Arduino.\
+[ESP32-S3 Datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf): Detailed specifications for the microcontroller.\
+[Original Audio Hookup Guide](https://learn.sarkfun.com/tutorials/i2s-audio-breakout-hookup-guide/all): Original source used for this tutorial.\
